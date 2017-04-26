@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Users</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+
+        $(document).on('submit', 'form', function(){
+              var firstname = $('#firstnamei').val();
+              var lastname = $('#lastnamei').val();
+              var email = $('#emaili').val();
+              var contact = $('#contacti').val();
+              if( (firstname === "First Name") || (lastname === "Last Name") || (email === "Email Address") || (contact === "Contact #") ){
+                alert('All fields must be completed for the data to append to the table.');
+                return false;
+              }
+              if( (firstname === "") || (lastname === "") || (email === "") || (contact === "") ){
+                alert('All fields must be completed for the data to append to the table.');
+                return false;
+              }
+              else {
+                $('table').append("<tr><td>" + firstname + "</td><td>" + lastname + "</td><td>" + email + "</td><td>" + contact + "</td>");
+                return false;
+              }
+          })
+        })
+    </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+        <th>Contact #</th>
+      </tr>
+    </table>
+    <div id="adduser">
+      <h1>Add User</h1>
+      <form>
+        <div class="fields">
+          First name:
+          <input id="firstnamei" type="text" name="firstname" value="First Name">
+        </div>
+        <div class="fields">
+          Last Name:
+          <input id="lastnamei" type="text" name="lastname" value="Last Name">
+        </div>
+        <div class="fields">
+          Email Address:
+          <input id="emaili" type="text" name="email" value="Email Address">
+        </div>
+        <div class="fields">
+          Contact #:
+          <input id="contacti" type="text" name="contact#" value="Contact #">
+        </div>
+        <input id="submitbutton" type="submit" name="submit" value="Add User">
+      </form>
+    </div>
+  </body>
+</html>
